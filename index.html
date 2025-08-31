@@ -2,55 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Love Explosion ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Keyia ❤️</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: #fff0f5;
       height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       flex-direction: column;
-      font-family: 'Poppins', sans-serif;
       overflow: hidden;
+      background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #a6c1ee);
+      background-size: 1000% 1000%;
+      animation: gradientMove 12s ease infinite;
+      font-family: "Poppins", sans-serif;
     }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     h1 {
-      color: #e60073;
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    button {
-      padding: 12px 25px;
-      border: none;
-      border-radius: 25px;
-      background: #e60073;
+      font-size: 3em;
       color: white;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: transform 0.2s;
+      text-shadow: 0 0 20px rgba(255, 0, 100, 0.6);
+      animation: fadeIn 2s ease forwards;
     }
-    button:hover {
-      transform: scale(1.1);
-      background: #ff3385;
+
+    h2 {
+      margin-top: 10px;
+      font-size: 1.5em;
+      color: #fff;
+      opacity: 0;
+      animation: fadeIn 3s ease forwards 1.5s;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .heart {
       position: absolute;
-      font-size: 20px;
-      color: #e60073;
-      animation: fall 4s linear forwards;
+      font-size: 24px;
+      color: #ff4d6d;
+      animation: floatUp 6s linear infinite;
     }
-    @keyframes fall {
-      0% { transform: translateY(-10vh) scale(1); opacity: 1; }
-      100% { transform: translateY(110vh) scale(0.5); opacity: 0; }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(0.8); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <h1>💘 Buat Kamu yang Tersayang, Keyia 💘</h1>
-  <button onclick="loveExplosion()">Klik Aku 💖</button>
+  <h1>For My Keyia ❤️</h1>
+  <h2>You make my world brighter ✨</h2>
 
   <script>
     function createHeart() {
@@ -58,22 +68,16 @@
       heart.classList.add("heart");
       heart.innerText = "💖";
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (15 + Math.random() * 25) + "px";
-      heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
       document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 4000);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
     }
 
-    function loveExplosion() {
-      // Ledakan love awal
-      for (let i = 0; i < 50; i++) {
-        setTimeout(createHeart, i * 50);
-      }
-      // Setelah itu hujan love terus
-      setInterval(createHeart, 300);
-      document.querySelector("button").style.display = "none";
-      document.querySelector("h1").innerText = "Aku sayang banget sama kamu, Keyia 💕";
-    }
+    setInterval(createHeart, 500);
   </script>
 </body>
 </html>
+
